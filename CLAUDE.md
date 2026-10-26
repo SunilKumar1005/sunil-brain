@@ -79,6 +79,8 @@ Prioritisation:
 
 Default lookback is 30 days: start every search with `newer_than:30d`. If Sunil asks for a longer or shorter scan ("morning brief 90 days", "scan emails since 1 Aug"), use `newer_than:90d` or `after:YYYY/MM/DD` instead. For mails sent to shared addresses he receives (e.g. partnerships@5cnetwork.com), add a separate search with `to:<address>`.
 
+Multiple mailboxes: search with `python -I tools/mail.py search "<query>"`. It searches every mailbox that has a token in .secrets/ (see `python -I tools/mail.py accounts`) and prints one tab separated row per thread with account, thread ID, last sender, whether the mailbox owner replied, and subject. Use the Gmail connector only as a fallback for Sunil's own inbox. Label every flagged email with its mailbox and thread ID, because thread IDs only work within their own mailbox. For support@5cnetwork.com apply the support triage rule below. A new mailbox is added with `python tools/mail.py add <email>`, which opens a browser login that Sunil must complete himself. Never print or commit anything from .secrets/.
+
 Append this verbatim to every Gmail search:
 
 ```
